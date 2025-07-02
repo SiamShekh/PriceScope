@@ -1,0 +1,50 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "../generated/prisma"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int        @id @default(autoincrement())
+  name      String
+  email     String     @unique
+  photo     String
+  createdAt DateTime   @default(now())
+  favorite  favorite[]
+
+  @@map("users")
+}
+
+model most_demand {
+  id         Int    @id @default(autoincrement())
+  name       String
+  price      String
+  img        String
+  href       String @unique
+  interested Int    @default(0)
+
+  createdAt DateTime @default(now())
+
+  @@map("most-demands")
+}
+
+model favorite {
+  id Int @id @default(autoincrement())
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  name  String
+  price String
+  img   String
+  href  String @unique
+
+  createdAt DateTime @default(now())
+
+  @@map("favorite")
+}
