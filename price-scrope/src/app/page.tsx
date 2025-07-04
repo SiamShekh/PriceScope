@@ -151,8 +151,8 @@ const page = () => {
                     }
                 </div>
 
-                <div className="absolute z-0 hidden md:flex h-full w-96 bg-gradient-to-r from-black to-transparent inset-0 left-0"></div>
-                <div className="absolute z-0 h-full hidden md:flex w-96 bg-gradient-to-l from-black to-transparent top-0 right-0"></div>
+                <div className="absolute z-0 hidden md:flex h-full w-96 bg-gradient-to-r from-white dark:from-black to-transparent inset-0 left-0"></div>
+                <div className="absolute z-0 h-full hidden md:flex w-96 bg-gradient-to-l from-white dark:from-black to-transparent top-0 right-0"></div>
             </div>
 
             <div className="bg-[#004752] p-12 mt-20 rounded-xl flex items-center justify-center flex-col gap-4">
